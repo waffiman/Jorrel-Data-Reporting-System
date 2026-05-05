@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JDRS | Presentation for Joju</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A192F;
+            --accent: #C5A059;
+            --text-light: #E6F1FF;
+            --text-dark: #8892B0;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #112240 0%, #0A192F 100%);
+            padding: 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            letter-spacing: 4px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--accent);
+            max-width: 800px;
+        }
+
+        section {
+            padding: 100px 10%;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: #112240;
+            padding: 2.5rem;
+            border-radius: 12px;
+            border-bottom: 4px solid var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(197, 160, 89, 0.1);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .price-section {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .price-card {
+            background: var(--white);
+            border: 2px solid #E6F1FF;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .price-card.featured {
+            border-color: var(--accent);
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .price-value {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin: 1.5rem 0;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .features-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .features-list li::before {
+            content: "вњ“";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .logic-list {
+            margin-top: 1.5rem;
+            padding-left: 1.25rem;
+            color: var(--text-light);
+        }
+
+        .logic-list li {
+            margin-bottom: 0.75rem;
+        }
+
+        .workflow-preview {
+            margin-top: 2rem;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+        }
+
+        .workflow-preview img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .cta-buttons {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.85rem 1.4rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+            box-shadow: 0 8px 24px rgba(197, 160, 89, 0.35);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.22);
+            color: var(--white);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        footer {
+            padding: 4rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">WAFFI Г— JORREL</div>
+        <h1>Jorrel Data Reporting System</h1>
+        <p class="subtitle">Turning 2 hours of manual labor into 60 seconds of mathematical precision.</p>
+    </header>
+
+    <section id="how-it-works">
+        <div class="reveal">
+            <span class="tag">OPERATIONAL LOGIC</span>
+            <h2>How JDRS Works</h2>
+            <p>JDRS operates on the "1-System" logicвЂ”a streamlined data collection method that ensures zero friction for your staff while providing 100% accurate metrics.</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Mathematical Engine</h3>
+                    <p>The system scans thousands of data points instantly, identifying performance markers without human intervention.</p>
+                </div>
+                <div class="card">
+                    <h3>Automated Reporting</h3>
+                    <p>Every finding is compiled into a professional Microsoft Word document, styled specifically for Jorrel's executive standards.</p>
+                </div>
+                <div class="card">
+                    <h3>Instant Delivery</h3>
+                    <p>The report is automatically dispatched via Gmail API to stakeholders, ensuring the team is always aligned.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: #0D223D;">
+        <div class="reveal">
+            <span class="tag">CALCULATOR PRINCIPLE</span>
+            <h2>How the KPI is Calculated</h2>
+            <p>Each HR manager works with simple "1" markers in Google Sheets, while JDRS handles all formulas and KPI calculations in the background.</p>
+            <ul class="logic-list">
+                <li><strong>Column G (New CV):</strong> every new candidate gets a "1". Sum(G) = total people in the system.</li>
+                <li><strong>Column H (Screened):</strong> after 8-question screening, manager marks "1". Sum(H) = total screened prospects.</li>
+                <li><strong>Main KPI:</strong> Recruitment Efficiency = (Sum(H) / Sum(G)) Г— 100.</li>
+                <li><strong>Example:</strong> 790 screened / 1018 total = 77.6% efficiency.</li>
+                <li><strong>Dashboard logic:</strong> for each system we compare Target vs Data, track day-to-day dynamic (+/-), and compute Target Accrued.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section style="background: #112240;">
+        <div class="reveal">
+            <span class="tag">TECH STACK</span>
+            <h2>Current vs Future</h2>
+            <div class="grid">
+                <div class="card">
+                    <span class="tag">CURRENT STATUS</span>
+                    <h3>Precision Code</h3>
+                    <p>Currently, JDRS relies on <strong>Deterministic Code & Mathematics</strong>. No AI hallucination, just pure data extraction. It is fast, stable, and reliable.</p>
+                </div>
+                <div class="card" style="border-color: #64FFDA;">
+                    <span class="tag" style="color: #64FFDA; background: rgba(100, 255, 218, 0.1);">FUTURE OPTION</span>
+                    <h3>AI Intelligence</h3>
+                    <p>We are ready to integrate <strong>Artificial Intelligence</strong> to analyze results against Jorrel's internal policies and manuals, providing custom strategic recommendations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: #0A192F;">
+        <div class="reveal">
+            <span class="tag">MVP WALKTHROUGH</span>
+            <h2>n8n Workflow Demo</h2>
+            <p>The MVP workflow is already assembled in n8n and now includes both KPI calculation and automated Google Docs report generation.</p>
+            <div class="cta-buttons">
+                <a class="btn btn-primary" href="https://www.loom.com/share/b83b4fc1635a4fcd9c611428695159b5" target="_blank" rel="noopener noreferrer">Watch Loom Demo</a>
+                <a class="btn btn-secondary" href="https://docs.google.com/document/d/1mXhMyc-NGHjvgpghQa3iyYJgpw754LWoXUaB8cB9Jus/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Open Generated Report</a>
+            </div>
+            <div class="workflow-preview">
+                <img src="assets/n8n-workflow.png" alt="JDRS n8n workflow visual overview">
+            </div>
+        </div>
+    </section>
+
+    <section class="price-section">
+        <div class="reveal">
+            <h2 style="color: var(--primary); text-align: center;">Investment Options</h2>
+            <p style="text-align: center; color: var(--text-dark); margin-bottom: 3rem;">Choose the level of intelligence for your operational reporting.</p>
+            
+            <div class="grid">
+                <div class="price-card">
+                    <span class="tag">CORE AUTOMATION</span>
+                    <h3>The Mathematical Engine</h3>
+                    <p>Full automation of the current 25 systems.</p>
+                    <div class="price-value">$300</div>
+                    <ul class="features-list">
+                        <li>Automated Data Extraction</li>
+                        <li>Professional Word Reporting</li>
+                        <li>Email Automation System</li>
+                        <li>Execution Logs Cleaner</li>
+                    </ul>
+                </div>
+
+                <div class="price-card featured">
+                    <span class="tag">INTELLIGENT UPGRADE</span>
+                    <h3>The AI Brain</h3>
+                    <p>Core system + AI Recommendation Engine.</p>
+                    <div class="price-value">$700-1000</div>
+                    <ul class="features-list">
+                        <li>Everything in Core Automation</li>
+                        <li>AI Analysis of KPI dynamics</li>
+                        <li>Policy-based Recommendations</li>
+                        <li>Advanced Trend Prediction</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 WAFFi Automation Systems. Tailored for Jorrel Management.</p>
+    </footer>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Initial check
+    </script>
+</body>
+</html>
